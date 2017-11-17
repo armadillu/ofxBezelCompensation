@@ -25,8 +25,10 @@ public:
 	void begin(){ myFbo.begin();}
 	void end(){ myFbo.end();}
 
-	int getWidth(){return myFbo.getWidth();};
-	int getHeight(){return myFbo.getHeight();};
+	int getFboWidth(){return myFbo.getWidth();};
+	int getFboHeight(){return myFbo.getHeight();};
+	int getCanvasWidth(){return numX * unitW;};
+	int getCanvasHeight(){return numY * unitH;};
 
 
 	void drawWithBezelCompensation(bool debug);
@@ -40,12 +42,14 @@ protected:
 
 	int numX = 4;
 	int numY = 3;
+
 	int unitW = 400;
 	int unitH = 300;
+
 	int bezelSize = 10;
 
-	int canvasW = unitW * numX;
-	int canvasH = unitH * numY;
+	int canvasW;
+	int canvasH;
 
 	int fboW;
 	int fboH;

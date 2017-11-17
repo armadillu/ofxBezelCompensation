@@ -44,7 +44,7 @@ void ofApp::draw(){
 
 	bezelFbo.begin();
 		//draw your raw contents into the ofxBezelCompensation
-		testTexture.draw(0,0, bezelFbo.getWidth(), bezelFbo.getHeight());
+		testTexture.draw(0,0, bezelFbo.getFboWidth(), bezelFbo.getFboHeight());
 	bezelFbo.end();
 
 	//draw actual content to screen
