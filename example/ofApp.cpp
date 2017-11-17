@@ -40,10 +40,19 @@ void ofApp::update(){
 
 
 void ofApp::draw(){
-	//draw your raw contents into the ofxBezelCompensation
+
+
 	bezelFbo.begin();
-	testTexture.draw(0,0, bezelFbo.getWidth(), bezelFbo.getHeight());
+		//draw your raw contents into the ofxBezelCompensation
+		testTexture.draw(0,0, bezelFbo.getWidth(), bezelFbo.getHeight());
 	bezelFbo.end();
 
-	bezelFbo.drawWithBezelCompensation(false);
+	//draw actual content to screen
+	if(bezelCompensation){
+		bezelFbo.drawWithBezelCompensation(false);
+	}else{
+		bezelFbo.getFbo().draw(0,0);
+	}
+
+	ofDrawBitmapStringHighlight("Press any key to toggle bezel compensation\nBezel Compensation: " + string(bezelCompensation?"yes":"no"), 20, 20);
 }

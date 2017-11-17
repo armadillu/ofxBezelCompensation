@@ -10,9 +10,11 @@ public:
 	void setup();
 	void update();
 	void draw();
+	void keyPressed(int k){ bezelCompensation ^= true; }
 
 	ofxBezelCompensation bezelFbo;
 	ofTexture testTexture;
 
+	bool bezelCompensation = false;
 
 };
