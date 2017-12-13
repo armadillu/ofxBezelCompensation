@@ -134,7 +134,11 @@ void ofxBezelCompensation::updateMesh(){
 void ofxBezelCompensation::drawWithBezelCompensation(bool debug){
 
 	myFbo.getTexture().bind();
+	
+	ofNotifyEvent(eventBeforeDraw, myFbo, this);
 	mesh.draw();
+	ofNotifyEvent(eventAfterDraw, myFbo, this);
+	
 	myFbo.getTexture().unbind();
 
 	if(debug){

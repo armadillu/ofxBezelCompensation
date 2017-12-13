@@ -35,6 +35,9 @@ public:
 
 	ofFbo & getFbo(){return myFbo;};
 
+	ofFastEvent<ofFbo> eventBeforeDraw;
+	ofFastEvent<ofFbo> eventAfterDraw;
+	
 protected:
 
 	ofFbo myFbo;
